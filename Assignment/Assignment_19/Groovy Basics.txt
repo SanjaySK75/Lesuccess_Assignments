@@ -1,0 +1,61 @@
+1) def countVowels(String input) {
+    def vowels = 'aeiouAEIOU'
+    input.count { vowels.contains(it) }
+}
+println countVowels("Groovy Programming")  
+
+
+2) def reverseString(String input) {
+    def result = ''
+    for (int i = input.length() - 1; i >= 0; i--) {
+        result += input[i]
+    }
+    return result
+}
+println reverseString("KnowKode")  
+
+
+3) def isPrime(int n) {
+    if (n <= 1) return false
+    for (int i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) return false
+    }
+    return true
+}
+println isPrime(17)  
+
+
+4) def removeDuplicates(List input) {
+    return input.unique()
+}
+println removeDuplicates([1, 2, 2, 3, 4, 4, 5])  
+
+
+5) def list1 = [1, 2, 3, 4]
+def list2 = [3, 4, 5, 6]
+def common = list1.intersect(list2)
+println common  
+
+
+6) def areAnagrams(String str1, String str2) {
+    str1.toLowerCase().toList().sort() == str2.toLowerCase().toList().sort()
+}
+println areAnagrams("listen", "silent")  
+
+
+7) def fibonacci(int n) {
+    def a = 0, b = 1
+    def result = []
+    for (int i = 0; i < n; i++) {
+        result << a
+        (a, b) = [b, a + b]
+    }
+    return result
+}
+println fibonacci(10)  
+
+
+8) def isPalindrome(String s) {
+    s == s.reverse()
+}
+println isPalindrome("madam")  
