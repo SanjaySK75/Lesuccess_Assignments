@@ -1,0 +1,57 @@
+1) def file = new File("name.txt")
+   file.text = "Sanjay Kumar"
+   def content = file.text
+   println "Read from file: $content"
+
+
+2) try {
+    def a = 10
+    def b = 0
+    println "Result: ${a / b}" 
+   } 
+   catch (ArithmeticException e) {
+    println "Error: Cannot divide by zero."
+   }  
+   finally {
+    println "Division operation attempted."
+   }
+
+   try {
+    def missingFile = new File("missing.txt")
+    println missingFile.text
+   }  
+   catch (FileNotFoundException e) {
+    println "Error: File not found."
+   }
+
+
+3) class Greet {
+    def methodMissing(String name, args) {
+        println "Method $name is not defined"
+    }
+   }
+
+   def obj = new Greet()
+   obj.someUndefinedMethod()  
+
+
+4) class Hello {
+    def propertyMissing(String name) {
+        return "undefined"
+    }
+   }
+
+   def obj = new Hello()
+   println obj.unknownProperty
+
+
+5) class Person {
+   }
+
+   def p = new Person()
+   p.metaClass.name = "Sanjay Kumar"
+   println "Name: ${p.name}"
+   p.metaClass.sayHello = { -> println "Hello, ${delegate.name}!" }
+   p.sayHello()  
+
+
