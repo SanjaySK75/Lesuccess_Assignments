@@ -1,0 +1,31 @@
+1) def calculate(a, b, operation) {
+    operation(a, b)
+}
+def add = { x, y -> x + y }
+def subtract = { x, y -> x - y }
+def multiply = { x, y -> x * y }
+println "Add: ${calculate(5, 3, add)}"         
+println "Subtract: ${calculate(5, 3, subtract)}" 
+println "Multiply: ${calculate(5, 3, multiply)}" 
+
+2) print "Enter a sentence: "
+def input = System.console() ? System.console().readLine() : new Scanner(System.in).nextLine()
+def words = input.tokenize()
+def freqMap = [:].withDefault { 0 }
+words.each { word ->
+    freqMap[word]++
+}
+freqMap.each { word, count ->
+    println "$word → $count"
+}
+
+3) def words = ["hi", "hello", "bye", "good", "sun"]
+def grouped = [:].withDefault { [] }
+words.each { word ->
+    grouped[word.length()] << word
+}
+grouped.each { length, wordList ->
+    println "$length → $wordList"
+}
+
+
